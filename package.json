@@ -7,9 +7,11 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "hashconnect": "^0.1.2",
     "next": "latest",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
