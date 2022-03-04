@@ -20,8 +20,9 @@ const IndexPage = () => {
   
   const handleClick = () => {
     if (installedExtensions){
-      console.log("Accountid: 🍟 ",accountIds);
+     
       connect();
+      console.log("Accountid: 🍟 ",walletData);
     } 
     else
       alert(
