@@ -172,7 +172,13 @@ export default function HashConnectProvider({
       additionalAccountResponseEventHandler
     );
     hashConnect.foundExtensionEvent.on(foundExtensionEventHandler);
-    hashConnect.pairingEvent.on(pairingEventHandler);
+    // hashConnect.pairingEvent.on(pairingEventHandler);
+    hashConnect.pairingEvent.once((pairingData) => {
+      //example
+      pairingData.accountIds.forEach(id => {
+        console.log("What is pairing data.", id);
+      })
+  })
 
     return () => {
       // Detach existing handlers
