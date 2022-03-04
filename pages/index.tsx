@@ -19,7 +19,10 @@ const IndexPage = () => {
 
   
   const handleClick = () => {
-    if (installedExtensions) connect();
+    if (installedExtensions){
+      console.log("Accountid: 🍟 ",accountIds);
+      connect();
+    } 
     else
       alert(
         "Please install hashconnect wallet extension first. from chrome web store."
