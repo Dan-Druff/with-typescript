@@ -148,12 +148,14 @@ export default function HashConnectProvider({
     data: HashConnectTypes.WalletMetadata
   ) => {
     if (debug) console.debug("====foundExtensionEvent====", data);
+    console.log("====foundExtensionEvent====", data)
     // Do a thing
     setInstalledExtensions(data);
   };
 
   const pairingEventHandler = (data: MessageTypes.ApprovePairing) => {
     if (debug) console.log("===Wallet connected=====", data);
+    console.log("===Wallet connected=====", data);
     // Save Data to localStorage
     saveDataInLocalStorage(data);
   };
