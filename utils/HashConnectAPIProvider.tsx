@@ -155,7 +155,10 @@ export default function HashConnectProvider({
 
   const pairingEventHandler = (data: MessageTypes.ApprovePairing) => {
     if (debug) console.log("===Wallet connected=====", data);
-    console.log("===Wallet connected=====", data);
+    console.log("===PAIRING EVENT!!!=====", data);
+    data.accountIds.forEach(id => {
+      console.log("LOGGING: ",id);
+    })
     // Save Data to localStorage
     saveDataInLocalStorage(data);
   };
