@@ -116,8 +116,10 @@ export default function HashConnectProvider({
     } finally {
       if (localData) {
         SetSaveData((prevData) => ({ ...prevData, ...localData }));
+        console.log("LOCAL DATA: ", localData)
       } else {
         SetSaveData((prevData) => ({ ...prevData, ...saveData }));
+        console.log("saveData DATA: ", saveData)
       }
       if (debug) console.log("====Wallet details updated to state====");
     }
