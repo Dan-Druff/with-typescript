@@ -40,6 +40,13 @@ const IndexPage = () => {
         <a>About</a>
       </Link>
     </p>
+    {accountIds && accountIds?.length > 0 && (
+          <div>
+            <h3>Connected Accounts Details:</h3>
+            <p>Network:{netWork}</p>
+            <p>Accounts: [{accountIds.reduce(conCatAccounts)}]</p>
+          </div>
+        )}
     <button onClick={() => handleClick()}>Try This :|</button>
   </Layout>
 
