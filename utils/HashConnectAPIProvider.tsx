@@ -84,7 +84,7 @@ export default function HashConnectProvider({
     try {
       if (!localData) {
         if (debug) console.log("===Local data not found.=====");
-
+        console.log("Local data not found");
         //first init and store the private for later
         let initData = await hashConnect.init(metaData ?? APP_CONFIG);
         saveData.privateKey = initData.privKey;
@@ -129,6 +129,7 @@ export default function HashConnectProvider({
     if (debug)
       console.info("===============Saving to localstorage::=============");
     const { metadata, ...restData } = data;
+    console.log("Save data in local storage");
     SetSaveData((prevSaveData) => {
       prevSaveData.pairedWalletData = metadata;
       return { ...prevSaveData, ...restData };
@@ -142,6 +143,7 @@ export default function HashConnectProvider({
   ) => {
     if (debug) console.debug("additionalAccountResponseEvent", data);
     // Do a thing
+    console.log("Additional accounts");
   };
 
   const foundExtensionEventHandler = (
@@ -179,7 +181,7 @@ export default function HashConnectProvider({
   //       console.log("What is pairing data.", id);
   //     })
   // })
-
+  console.log("UE what is walletData: ",saveData);
     return () => {
       // Detach existing handlers
       hashConnect.additionalAccountResponseEvent.off(
@@ -187,10 +189,12 @@ export default function HashConnectProvider({
       );
       hashConnect.foundExtensionEvent.off(foundExtensionEventHandler);
       hashConnect.pairingEvent.off(pairingEventHandler);
+      console.log("UE what is walletData: ",saveData);
     };
   }, []);
 
   const connect = () => {
+    console.log("Connectingg: ");
     if (installedExtensions) {
       if (debug) console.log("Pairing String::", saveData.pairingString);
       hashConnect.connectToLocalWallet(saveData?.pairingString);
