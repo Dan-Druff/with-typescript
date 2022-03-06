@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Layout from '../components/Layout'
-
+import { useEffect } from 'react';
 
 import { useHashConnect } from '../utils/HashConnectAPIProvider';
 
@@ -29,6 +29,13 @@ const IndexPage = () => {
         "Please install hashconnect wallet extension first. from chrome web store."
       );
   };
+  useEffect(() => {
+  console.log("UE is: ", accountIds)
+
+    return () => {
+    
+    }
+  }, [accountIds])
 
   
   return (
